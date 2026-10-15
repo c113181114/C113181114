@@ -1,12 +1,13 @@
 <?php
-echo "# SID: C113181114<br>";
-echo "# Name: 郭韋廷<br>";
-echo "EX03<br>";
-?>
+function printHeader()
+{
+    echo "<h3>SID: C113181114</h3>";
+    echo "<h3>Name: 郭韋廷</h3>";
+    echo "<h3>EX03</h3>";
+    echo "<hr>";
+}
+printHeader();
 
-<hr>
-
-<?php
 function volume($length, $width = 10, $height = 15)
 {
     print $length . "x" . $width . "x" . $height . "=";
