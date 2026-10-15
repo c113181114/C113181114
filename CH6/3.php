@@ -20,7 +20,7 @@ $h = 30;
 
 print "盒子體積：" . volume($l, $w, $h) . "<br/>";
 print "盒子體積：" . volume($l, $w) . "<br/>";
-print "盒子體積：" . volume($l) . "<br/>";
+print "盒子體積：" . volume($l) . "<hr/>";
 
 $func = "volume";
 

@@ -1,4 +1,3 @@
-```php
 <?php
 function printHeader()
 {
@@ -16,5 +15,5 @@ var_dump($test);
 
 unset($test);
 
-var_dump(isset($test));
+
 ?>

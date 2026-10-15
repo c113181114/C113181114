@@ -3,7 +3,7 @@ function printHeader()
 {
     echo "<h3>SID: C113181114</h3>";
     echo "<h3>Name: 郭韋廷</h3>";
-    echo "<h3>Ch06-4-1</h3>";
+    echo "<h3>EX05</h3>";
     echo "<hr>";
 }
 
