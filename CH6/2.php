@@ -1,3 +1,4 @@
+
 <?php
 
 function printHeader()
@@ -21,4 +22,3 @@ printHeader();
 echo "Money: " . $rate;
 
 ?>
-```

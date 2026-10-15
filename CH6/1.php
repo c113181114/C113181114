@@ -1,27 +1,23 @@
-<?php
-echo "# SID: C113181114<br>";
-echo "# Name: 郭韋廷<br>";
-echo "EX01<br>";
-?>
-<hr>
 
-```php
 <?php
-
-function printHeader() {
+function printHeader()
+{
+    echo "<h3>SID: C113181114</h3>";
+    echo "<h3>Name: 郭韋廷</h3>";
+    echo "<h3>EX01</h3>";
+    echo "<hr>";
     echo "<h3>PHP 和 MySQL 網頁設計</h3>";
 }
 
-function printFooter() {
-    echo "<hr><br>";
-    echo "(c) C1234567-Smith. 保留所有權利。";
+function printFooter()
+{
+    echo "<br>";
+    echo "(c) C113181114-郭韋廷。保留所有權利。";
 }
 
-printHeader(); // 呼叫函數顯示標題
+printHeader();
 
 echo "<p>這是一個簡單的 PHP 網頁。</p>";
 
-printFooter(); // 呼叫函數顯示頁尾
-
+printFooter();
 ?>
-```
