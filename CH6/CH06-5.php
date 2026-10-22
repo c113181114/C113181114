@@ -1,4 +1,7 @@
 <?php
+include "about_me.php";
+echo "EX01<br/>";
+
 include "CH06-5-1.inc";
 require_once("CH06-5-2.inc");
 
