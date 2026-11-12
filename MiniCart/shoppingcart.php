@@ -1,6 +1,8 @@
 
 <?php
-session_start(); // 啟用交談期
+require("about_me.php");
+echo "W10-EX02" . "<br/>";
+session_start();
 ?>
 
 <html>
@@ -25,29 +27,47 @@ session_start(); // 啟用交談期
 </tr>
 
 <?php
-
-$flag = false;
 $total = 0;
+$flag = false;
+$colors = array("#FF99CC", "#99FFCC");
+$i = 0;
 
-// 讀取 Session 購物車
-if (isset($_SESSION["Cart"])) {
+if (isset($_SESSION["Cart"]) && !empty($_SESSION["Cart"])) {
 
     foreach ($_SESSION["Cart"] as $item) {
 
         $flag = true;
 
-        $name = $item["Name"];
-        $price = $item["Price"];
-        $quantity = $item["Quantity"];
+        // 取得商品資料
+        $id = isset($item["Id"]) ? $item["Id"] : "";
+        $name = isset($item["Name"]) ? $item["Name"] : "";
+        $price = isset($item["Price"]) ? $item["Price"] : 0;
+        $quantity = isset($item["Quantity"]) ? $item["Quantity"] : 0;
 
+        // 顯示商品資料，方便檢查編號
+        echo "<!-- ";
+        var_dump($item);
+        echo " -->";
+
+        // 計算小計
         $subtotal = $price * $quantity;
         $total += $subtotal;
 
-        echo "<tr>";
+        // 交錯顏色
+        $color = $colors[$i % 2];
+        $i++;
 
-        echo "<td>已加入</td>";
-        echo "<td>-</td>";
-        echo "<td>" . $name . "</td>";
+        echo "<tr bgcolor='" . $color . "'>";
+
+        // 刪除功能
+        if ($id != "") {
+            echo "<td><a href='delete.php?Id=" . urlencode($id) . "'>刪除</a></td>";
+        } else {
+            echo "<td>無編號</td>";
+        }
+
+        echo "<td>" . htmlspecialchars($id) . "</td>";
+        echo "<td>" . htmlspecialchars($name) . "</td>";
         echo "<td>$" . $price . "</td>";
         echo "<td>" . $quantity . "</td>";
         echo "<td>$" . $subtotal . "</td>";
@@ -58,22 +78,20 @@ if (isset($_SESSION["Cart"])) {
 
 // 購物車沒有商品
 if ($flag == false) {
-    echo "<tr>";
-    echo "<td colspan='6'>購物車目前沒有商品！</td>";
-    echo "</tr>";
+    echo "<tr><td colspan='6'>購物車目前沒有商品！</td></tr>";
 }
-
 ?>
 
 </table>
 
 <?php
+// 顯示總金額
 if ($flag == true) {
     echo "<h3>總金額：$" . $total . "</h3>";
 }
 ?>
 
-<hr/><br/>
+<hr/>
 
 | <a href="catalog.php">Catalog</a> |
 <a href="shoppingcart.php">Mini Cart</a> |

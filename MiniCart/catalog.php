@@ -1,5 +1,6 @@
-
 <?php
+require("about_me.php");
+echo "W10-EX02" . "<br/>";
 session_start(); // 啟用交談期
 
 if (isset($_POST["Item"])) {
@@ -9,6 +10,9 @@ if (isset($_POST["Item"])) {
 
     // 接收商品編號
     $id = $_POST["Item"];
+
+    // 儲存商品編號
+    $_SESSION["Id"] = $id;
 
     // 判斷商品
     switch (strtoupper($id)) {
