@@ -8,39 +8,51 @@
 </head>
 
 <body>
-    <?php
-    $file = basename($_SERVER["PHP_SELF"], ".php");
-    $path = realpath($file . ".php"); //取得檔案實際路徑
 
-    echo "實際路徑:$path<br/>";
+<?php
 
-    $parts = pathinfo($path); //取得路徑資訊
+require "about_me.php";
 
-    echo "路徑:" . $parts["dirname"] . "<br/>";
-    echo "檔名:" . $parts["basename"] . "<br/>";
-    echo "副檔名:" . $parts["extension"] . " α<hr/>";
+echo "W11 Ex01<br/>";
+echo "<hr/>";
 
-    //檢查檔案是否存在
-    if (file_exists($file . ".php"))
-        print "檔案:$file.php 存在<br/>";
-    else
-        print "檔案:$file.php 不存在<br/>";
+// Get file name and actual path
+$file = basename($_SERVER["PHP_SELF"], ".php");
+$path = realpath($file . ".php");
 
-    //複製檔案
-    if (!copy($file . ".php", $file . ".bak"))
-        print "檔案:$file.php 複製成bak失敗<br/>";
-    else
-        print "檔案:$file.php複製成bak成功<br/>";
+echo "real path: $path<br/>";
 
-    //檔案更名
-    if (rename($file . ".bak", "test.txt"))
-        print "檔案:$file.bak 更名成test.txt<br/>";
+$parts = pathinfo($path);
 
-    //刪除檔案
-    if (file_exists("test.txt")) {
-        unlink("test.txt");
-        print "檔案:test.txt 已經刪除<br/>";
-    }
-    ?>
+echo "path: " . $parts["dirname"] . "<br/>";
+echo "filename: " . $parts["basename"] . "<br/>";
+echo "extension: " . $parts["extension"] . "<br/>";
+
+echo "<hr/>";
+
+// Check whether the file exists
+if (file_exists($file . ".php"))
+    print "file: $file.php exists<br/>";
+else
+    print "file: $file.php does not exist<br/>";
+
+// Copy file
+if (!copy($file . ".php", $file . ".bak"))
+    print "file: $file.php copy to bak failed<br/>";
+else
+    print "file: $file.php copy to bak successful<br/>";
+
+// Rename file
+if (rename($file . ".bak", "test.txt"))
+    print "file: $file.bak rename to test.txt successful<br/>";
+
+// Delete file
+if (file_exists("test.txt")) {
+    unlink("test.txt");
+    print "file: test.txt has been deleted<br/>";
+}
+
+?>
+
 </body>
 </html>

@@ -12,7 +12,7 @@
 <?php
 require "about_me.php";
 
-echo "W11 Ex01<br/>";
+echo "W11 Ex02<br/>";
 echo "<HR>";
 
 // 檔案名稱
